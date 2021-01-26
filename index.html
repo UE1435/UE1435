@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+<head>
+    <title>じゃんけんゲーム</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="./script.js"></script>
+</head>
+<body>
+    <h1>じゃんけんゲーム</h1>
+    <p>じゃんけんができるプログラムをつくりました。<br>
+       じゃんけんの再戦を希望する場合は,そのまま次の手を選んでください</p>
+    <input type="button" value="グー" onclick="rsp(0);">
+    <input type="button" value="チョキ" onclick="rsp(1);">
+    <input type="button" value="パー" onclick="rsp(2);">
+
+<script>
+function rsp(playerSelect) {
+    let result;
+    let playerSelectHand;
+    let comSelectHand;
+    let resultString;
+    let random = Math.random();
+    let comSelect = Math.floor(random * 3);
+    console.log(comSelect);
+    console.log(playerSelect);
+
+  if (playerSelect == comSelect) {
+      result = 2;
+    } else {
+        if (playerSelect == 0) {
+        if (comSelect == 1) {
+          result = 1;
+        } else {
+          result = 0;
+        }
+    } else if (playerSelect == 1) {
+         if (comSelect == 0) {
+          result = 0;
+        } else {
+          result = 1;
+        }
+    } else {
+        if (comSelect == 0) {
+          result = 1;
+        } else {
+          result = 0;
+        }
+    }
+}
+  console.log(result);
+
+    if (playerSelect == 0) {
+        playerSelectHand = 'グー';
+    } else if (playerSelect == 1) {
+        playerSelectHand = 'チョキ';
+    } else {
+        playerSelectHand = 'パー';
+    }
+
+    if (comSelect == 0) {
+        comSelectHand = 'グー';
+    } else if (comSelect == 1) {
+        comSelectHand = 'チョキ';
+    } else {
+        comSelectHand = 'パー';
+    }
+
+    if (result == 0) {
+        resultString = '負け';
+    } else if (result == 1) {
+        resultString = '勝ち';
+    } else {
+        resultString = 'あいこ';
+    }
+
+    document.getElementById('player').innerHTML = 'あなたは ' + playerSelectHand;
+    document.getElementById('computer').innerHTML =
+        'コンピューターは ' + comSelectHand;
+    document.getElementById('resultMsg').innerHTML = '結果は ' + resultString;
+}
+</script>
+
+    <div>
+        <div id="player"></div>
+        <div id="computer"></div>
+        <div id="resultMsg"></div>
+    </div>
+
+</body>
+</html>

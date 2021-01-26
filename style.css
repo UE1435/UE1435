@@ -1,0 +1,14 @@
+@chartset "UTF-8";
+
+body {
+  background: #deb887;
+  font-family: Yu Gothic;
+  }
+
+div {
+  background: #ffffff;
+  margin: 50px;
+  padding: 5px;
+  text-align: center;
+  border: 3px solid #cccccc;
+ }
